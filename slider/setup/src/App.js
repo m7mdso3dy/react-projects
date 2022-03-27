@@ -22,10 +22,11 @@ function App() {
     }
   }
   useEffect(() => {
-    setInterval(() => {
+    const inter = setInterval(() => {
       changeSlideHandler('prev');
-    },3000)
-  },[])
+    }, 3000);
+    return ()=> clearInterval(inter)
+  },[activeSlide])
   return (
     <section className="section">
       <SectionTitle
